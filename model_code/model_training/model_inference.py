@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import joblib
 import numpy as np
@@ -21,11 +22,11 @@ label_lst = [
     np.str_("ISTJ"),
     np.str_("ISTP"),
 ]
-model_path = model_path = (
-    r"/Users/arvindyadav/Documents/1_GakudoAI_work_AYC_Nov2024/003_code/000_report_generation_v2/model_weights/1_16P_rf_v1.joblib"
-)
+model_path = model_path = (r"model_weights/1_16P_rf_v1.joblib")
+print(f"File exists: {os.path.exists(model_path)}, Path: {model_path}")
 ### Model load
 clf = joblib.load(model_path)
+
 resp_val_mapping = {
     "Fully Agree": 3,
     "Partially Agree": 2,
